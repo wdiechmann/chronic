@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'time'
 require 'date'
 
@@ -63,7 +64,7 @@ module Chronic
   self.debug = false
   self.time_class = Time
 end
-
+require 'i18n'
 require 'chronic/chronic'
 require 'chronic/handler'
 require 'chronic/handlers'

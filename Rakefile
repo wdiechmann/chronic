@@ -6,6 +6,11 @@ def version
 end
 
 task :test do
+  require 'i18n'
+
+  I18n.load_path += Dir.glob('test/support/locales/chronic/*.yml')
+  I18n.locale=:da
+  
   $:.unshift './test'
   Dir.glob('test/test_*.rb').each { |t| require File.basename(t) }
 end

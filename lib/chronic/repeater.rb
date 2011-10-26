@@ -116,16 +116,16 @@ module Chronic
 
     # returns the width (in seconds or months) of this repeatable.
     def width
-      raise("Repeater#width must be overridden in subclasses")
+      raise( I18n.t(:repeater_width_override, scope: 'chronic.warnings'))
     end
 
     # returns the next occurance of this repeatable.
     def next(pointer)
-      raise("Start point must be set before calling #next") unless @now
+      raise( I18n.t(:start_point_not_set_before_call_next, scope: 'chronic.warnings') ) unless @now
     end
 
     def this(pointer)
-      raise("Start point must be set before calling #this") unless @now
+      raise( I18n.t(:start_point_not_set_before_call_this, scope: 'chronic.warnings') ) unless @now
     end
 
     def to_s

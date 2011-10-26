@@ -1,0 +1,81 @@
+# encoding: UTF-8
+da:
+
+    chronic:
+        tests:
+            two_and_a_half_years:                       'to og et halvt år'
+            første:                                     '%{key} is not a valid option key.'
+            
+        errors:
+            not_valid_key:                              "%{key} is not a valid option key."
+            not_valid_context:                          "Invalid context, :past/:future only"
+            unknown_endian_option:                      "Unknown endian option '%{endian}'"
+            twelve_valid_months:                        "1..12 are valid months"
+            thirty_one_valid_days:                      "1..31 are valid days"
+            invalid_symbol:                             "Invalid symbol specified"
+            invalid_repeaterday_type:                   "Invalid type '%{type}' for RepeaterDayPortion"
+            range_not_set_yet:                          "Range should have been set by now"
+            range_not_set:                              "Range has not been set"
+            current_month_not_set_yet:                  "Current month should be set by now"
+            time_exceed_six_figures:                    "Time cannot exceed six digits"
+            current_time_nil_now:                       "Current time cannot be nil at this point"
+
+        warnings:                                       
+            day_too_big:                                "day must be no more than 56 (makes month resolution easier)"
+            repeater_width_ override:                   "Repeater#width must be overridden in subclasses"
+            start_point_not_set_before_call_next:       "Start point must be set before calling #next"
+            start_point_not_set_before_call_this:       "Start point must be set before calling #this"
+        pains:
+            invalid_subset_specified:                   "Invalid subset %{name} specified"
+            invalid_match_type:                         "Invalid match type: %{element_class}"
+            invalid_grabber:                            "Invalid grabber"
+
+        nums:
+            elleve:                                     "11"
+            tolv:                                       "12"
+            tretten:                                    '13'
+            fjorten:                                    '14'
+            femten:                                     '15'
+            seksten:                                    '16'
+            sytten:                                     '17'
+            atten:                                      '18'
+            nitten:                                     '19'
+            niten:                                      '19'
+            nul:                                        '0'
+            en:                                         '1'
+            to:                                         '2'
+            tre:                                        '3'
+            fire:                                       '4'
+            fem:                                        '5'
+            seks:                                       '6'
+            syv:                                        '7'
+            otte:                                       '8'
+            ni:                                         '9'
+            ti:                                         '10'
+
+        ordinals:
+            first:                                      "første"
+            first_suffix:                               "1."
+            second:                                     "2"
+            second_suffix:                              "2."
+            second_day:                                 "anden dag"
+            second_day_suffix:                          '2. dag'
+            
+            
+            third:                                      "3"
+            third_suffix:                               "."
+            fourth:                                     "4"
+            fourth_suffix:                              "."
+            fifth:                                      "5"
+            fifth_suffix:                               "."
+            sixth:                                      "6"
+            sixth_suffix:                               "."
+            seventh:                                    "7"
+            seventh_suffix:                             "."
+            eighth:                                     "8"
+            eighth_suffix:                              "."
+            nineth:                                     "9"
+            nineth_suffix:                              "."
+
+            first_day_month_two:                        "første dag måned to"
+            first_day_month_two_suffix:                 '1. dag måned 2'

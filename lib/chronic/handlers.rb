@@ -396,7 +396,7 @@ module Chronic
       when :next
         outer_span = head.next(:future)
       else
-        raise ChronicPain, "Invalid grabber"
+        raise ChronicPain, I18n.t(:invalid_grabber, scope: 'chronic.pains')
       end
 
       if Chronic.debug

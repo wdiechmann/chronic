@@ -16,10 +16,10 @@ module Chronic
         @range = (@type * 60 * 60)..((@type + 12) * 60 * 60)
       else
         @range = PORTIONS[type]
-        @range || raise("Invalid type '#{type}' for RepeaterDayPortion")
+        @range || raise( I18n.t(:invalid_repeaterday_type, type: type, scope: 'chronic.errors'))
       end
 
-      @range || raise("Range should have been set by now")
+      @range || raise( I18n.t(:range_not_set_yet, scope: 'chronic.errors'))
     end
 
     def next(pointer)
@@ -78,7 +78,7 @@ module Chronic
     end
 
     def width
-      @range || raise("Range has not been set")
+      @range || raise( I18n.t(:range_not_set, scope: 'chronic.errors'))
       return @current_span.width if @current_span
       if @type.kind_of? Integer
         return (12 * 60 * 60)

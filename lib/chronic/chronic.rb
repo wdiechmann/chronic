@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module Chronic
 
   DEFAULT_OPTIONS = {
@@ -63,11 +64,11 @@ module Chronic
 
       # ensure the specified options are valid
       (opts.keys - DEFAULT_OPTIONS.keys).each do |key|
-        raise ArgumentError, "#{key} is not a valid option key."
+        raise ArgumentError, I18n.t(:not_valid_key, key: key, scope: 'chronic.errors' )
       end
 
       unless [:past, :future, :none].include?(options[:context])
-        raise ArgumentError, "Invalid context, :past/:future only"
+        raise ArgumentError, I18n.t(:not_valid_context, scope: 'chronic.errors' )
       end
 
       options[:text] = text
@@ -222,7 +223,7 @@ module Chronic
       when :middle
         @definitions[:endian] = endians
       else
-        raise ArgumentError, "Unknown endian option '#{endian}'"
+        raise ArgumentError, I18n.t(:unknown_endian_option, endian: endian, scope: 'chronic.errors' )
       end
 
       @definitions
@@ -249,7 +250,7 @@ module Chronic
 
       # determine if there is a day overflow. this is complicated by our crappy calendar
       # system (non-constant number of days per month)
-      day <= 56 || raise("day must be no more than 56 (makes month resolution easier)")
+      day <= 56 || raise(I18n.t(:day_too_big, scope: 'chronic.warnings') )
       if day > 28
         # no month ever has fewer than 28 days, so only do this if necessary
         leap_year_month_days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]

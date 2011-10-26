@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module Chronic
   class MiniDate
     attr_accessor :month, :day
@@ -8,7 +9,10 @@ module Chronic
 
     def initialize(month, day)
       unless (1..12).include?(month)
-        raise ArgumentError, "1..12 are valid months"
+        raise ArgumentError, I18n.t(:twelve_valid_months, scope: 'chronic.errors')
+      end
+      unless (1..31).include?(day)
+        raise ArgumentError, I18n.t(:thirty_one_valid_days, scope: 'chronic.errors')
       end
 
       @month = month

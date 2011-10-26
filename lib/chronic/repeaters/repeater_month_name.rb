@@ -44,7 +44,7 @@ module Chronic
             @current_month_begin = Chronic.construct(@now.year - 1, index)
           end
         end
-        @current_month_begin || raise("Current month should be set by now")
+        @current_month_begin || raise( I18n.t(:current_month_not_set_yet, scope: 'chronic.errors'))
       else
         case pointer
         when :future

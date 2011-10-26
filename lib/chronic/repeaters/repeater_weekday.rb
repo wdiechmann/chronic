@@ -79,7 +79,7 @@ module Chronic
     end
 
     def symbol_to_number(sym)
-      DAYS[sym] || raise("Invalid symbol specified")
+      DAYS[sym] || raise( I18n.t(:invalid_symbol, scope: 'chronic.errors'))
     end
   end
 end

@@ -1,0 +1,34 @@
+en:
+    chronic:
+        tests:
+            two_and_a_half_years:                       'two and a half years'
+            
+        errors:
+            not_valid_key:                              "%{key} is not a valid option key."
+            not_valid_context:                          "Invalid context, :past/:future only"
+            unknown_endian_option:                      "Unknown endian option '%{endian}'"
+            twelve_valid_months:                        "1..12 are valid months"
+            thirty_one_valid_days:                      "1..31 are valid days"
+            invalid_symbol:                             "Invalid symbol specified"
+            invalid_repeaterday_type:                   "Invalid type '%{type}' for RepeaterDayPortion"
+            range_not_set_yet:                          "Range should have been set by now"
+            range_not_set:                              "Range has not been set"
+            current_month_not_set_yet:                  "Current month should be set by now"
+            time_exceed_six_figures:                    "Time cannot exceed six digits"
+            current_time_nil_now:                       "Current time cannot be nil at this point"
+
+        warnings:                                       
+            day_too_big:                                "day must be no more than 56 (makes month resolution easier)"
+            repeater_width_ override:                   "Repeater#width must be overridden in subclasses"
+            start_point_not_set_before_call_next:       "Start point must be set before calling #next"
+            start_point_not_set_before_call_this:       "Start point must be set before calling #this"
+        pains:
+            invalid_subset_specified:                   "Invalid subset %{name} specified"
+            invalid_match_type:                         "Invalid match type: %{element_class}"
+            invalid_grabber:                            "Invalid grabber"
+
+        nums:
+            two:                                        "two"
+            
+        ordinals:
+            first:                                      "first"

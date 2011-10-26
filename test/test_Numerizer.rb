@@ -1,35 +1,37 @@
+# encoding: UTF-8
 require 'helper'
 
 class ParseNumbersTest < Test::Unit::TestCase
 
   def test_straight_parsing
     strings = {
-      'one' => 1,
-      'five' => 5,
-      'ten' => 10,
-      'eleven' => 11,
-      'twelve' => 12,
-      'thirteen' => 13,
-      'fourteen' => 14,
-      'fifteen' => 15,
-      'sixteen' => 16,
-      'seventeen' => 17,
-      'eighteen' => 18,
-      'nineteen' => 19,
-      'twenty' => 20,
-      'twenty seven' => 27,
-      'thirty-one' => 31,
-      'thirty-seven' => 37,
-      'thirty seven' => 37,
-      'fifty nine' => 59,
-      'forty two' => 42,
-      'fourty two' => 42,
-      # 'a hundred' => 100,
-      'one hundred' => 100,
-      'one hundred and fifty' => 150,
-      # 'one fifty' => 150,
-      'two-hundred' => 200,
-      '5 hundred' => 500,
+      'en' => 1,
+      'fem' => 5,
+      'ti' => 10,
+      'elleve' => 11,
+      'tolv' => 12,
+      'tretten' => 13,
+      'fjorten' => 14,
+      'femten' => 15,
+      'seksten' => 16,
+      'sytten' => 17,
+      'atten' => 18,
+      'nitten' => 19,
+      'tyve' => 20,
+      'syv og tyve' => 27,
+      'en og tredive' => 31,
+      'syv og tredive' => 37,
+      'syv tredive' => 37,
+      'ni og halvtreds' => 59,
+      'ni og halvtres' => 59,
+      'to og fyrre' => 42,
+      'to og fyre' => 42,
+      'en hundred' => 100,
+      'et hundrede' => 100,
+      'et hundred og halvtres' => 150,
+      'hundred og halvtres' => 150,
+      'to hundrede' => 200,
+      '5 hundrede' => 500,
       'nine hundred and ninety nine' => 999,
       'one thousand' => 1000,
       'twelve hundred' => 1200,
@@ -52,13 +54,13 @@ class ParseNumbersTest < Test::Unit::TestCase
 
   def test_ordinal_strings
     {
-      'first' => '1st',
-      'second' => 'second',
-      'second day' => '2nd day',
+      I18n.t(:first, scope: 'chronic.ordinals') => I18n.t(:first_suffix, scope: 'chronic.ordinals'),
+      I18n.t(:second, scope: 'chronic.ordinals') => I18n.t(:second_suffix, scope: 'chronic.ordinals'),
+      I18n.t(:second_day, scope: 'chronic.ordinals') => I18n.t(:second_day_suffix, scope: 'chronic.ordinals'),
       'second of may' => '2nd of may',
       'fifth' => '5th',
       'twenty third' => '23rd',
-      'first day month two' => '1st day month 2'
+      I18n.t(:first_day_month_two, scope: 'chronic.ordinals') => I18n.t(:first_day_month_two_suffix, scope: 'chronic.ordinals')
     }.each do |key, val|
       # Use pre_normalize here instead of Numerizer directly because
       # pre_normalize deals with parsing 'second' appropriately

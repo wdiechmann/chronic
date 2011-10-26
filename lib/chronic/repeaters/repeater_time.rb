@@ -49,7 +49,7 @@ module Chronic
         hours = t[0..1].to_i
         hours == 12 ? Tick.new(0 * 60 * 60 + t[2..3].to_i * 60 + t[4..5].to_i, ambiguous) : Tick.new(hours * 60 * 60 + t[2..3].to_i * 60 + t[4..5].to_i, ambiguous)
       else
-        raise("Time cannot exceed six digits")
+        raise( I18n.t(:time_exceed_six_figures, scope: 'chronic.errors'))
       end
     end
 
@@ -98,7 +98,7 @@ module Chronic
           end
         end
 
-        @current_time || raise("Current time cannot be nil at this point")
+        @current_time || raise( I18n.t(:current_time_nil_now, scope: 'chronic.errors'))
       end
 
       unless first

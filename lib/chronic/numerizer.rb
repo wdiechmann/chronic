@@ -1,10 +1,11 @@
+# encoding: UTF-8
 require 'strscan'
 
 module Chronic
   class Numerizer
 
     DIRECT_NUMS = [
-      ['eleven', '11'],
+      ['elleve', '11'],
       ['twelve', '12'],
       ['thirteen', '13'],
       ['fourteen', '14'],
@@ -15,29 +16,29 @@ module Chronic
       ['nineteen', '19'],
       ['ninteen', '19'], # Common mis-spelling
       ['zero', '0'],
-      ['one', '1'],
-      ['two', '2'],
+      ['en', '1'],
+      ['to', '2'],
       ['three', '3'],
       ['four(\W|$)', '4\1'],  # The weird regex is so that it matches four but not fourty
-      ['five', '5'],
+      ['fem', '5'],
       ['six(\W|$)', '6\1'],
       ['seven(\W|$)', '7\1'],
       ['eight(\W|$)', '8\1'],
       ['nine(\W|$)', '9\1'],
-      ['ten', '10'],
+      ['ti', '10'],
       ['\ba[\b^$]', '1'] # doesn't make sense for an 'a' at the end to be a 1
     ]
 
     ORDINALS = [
-      ['first', '1'],
-      ['third', '3'],
-      ['fourth', '4'],
-      ['fifth', '5'],
-      ['sixth', '6'],
-      ['seventh', '7'],
-      ['eighth', '8'],
-      ['ninth', '9'],
-      ['tenth', '10']
+      [I18n.t(:first, scope: 'chronic.ordinals'), '1', I18n.t(:first_suffix, scope: 'chronic.ordinals') ],
+      ['third', '3', 'rd'],
+      ['fourth', '4', 'th'],
+      ['fifth', '5', 'th'],
+      ['sixth', '6', 'th'],
+      ['seventh', '7', 'th'],
+      ['eighth', '8', 'th'],
+      ['ninth', '9', 'th'],
+      ['tenth', '10', 'th']
     ]
 
     TEN_PREFIXES = [
@@ -70,11 +71,11 @@ module Chronic
       # easy/direct replacements
 
       DIRECT_NUMS.each do |dn|
-        string.gsub!(/#{dn[0]}/i, '<num>' + dn[1])
+        string.gsub!(/[^| ]#{dn[0]}/i, ' <num>' + dn[1])
       end
 
       ORDINALS.each do |on|
-        string.gsub!(/#{on[0]}/i, '<num>' + on[1] + on[0][-2, 2])
+        string.gsub!(/#{on[0]}/i, '<num>' + on[1] + on[2])
       end
 
       # ten, twenty, etc.

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'helper'
 
 class TestChronic < Test::Unit::TestCase
@@ -8,7 +9,7 @@ class TestChronic < Test::Unit::TestCase
   end
 
   def test_pre_normalize_numerized_string
-    string = 'two and a half years'
+    string = I18n.t(:two_and_a_half_years, scope: 'chronic.tests')
     assert_equal Chronic::Numerizer.numerize(string), Chronic.pre_normalize(string)
   end
 
